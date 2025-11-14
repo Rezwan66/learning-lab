@@ -46,6 +46,7 @@ const isAdmin: IsAdmin = false;
 
 // function
 type AddFunc = (num1: number, num2: number) => number;
+// for function interface will be like this
 interface IAddFunc {
   (num1: number, num2: number): number;
 }

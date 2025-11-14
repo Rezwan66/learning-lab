@@ -35,3 +35,10 @@ type ProductReadOnly = Readonly<Product>;
 
 //! const emptyObj: Object = {}; instead use:
 const emptyObj: Record<string, unknown> = {}; //--> we know because left side keys of objects is always string
+
+type TStd = 'Omar' | 'Rakib';
+
+const roll: Record<TStd, number> = {
+  Omar: 23,
+  Rakib: 100,
+};
