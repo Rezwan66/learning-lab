@@ -5,7 +5,7 @@
 type GenericArray<T> = Array<T>; //* Most codebases denote it as T for type
 
 // const friends: string[] = ['Mr. X', 'Mr. Y', 'Mr. Z'];
-// const friends: Array<string> = ['Mr. X', 'Mr. Y', 'Mr. Z']; //@ Another way of defining type - using Array constructor using angle brackets
+// const friends: Array<string> = ['Mr. X', 'Mr. Y', 'Mr. Z']; //^ Another way of defining type - using Array constructor using angle brackets
 const friends: GenericArray<string> = ['Mr. X', 'Mr. Y', 'Mr. Z'];
 
 // const rollNumbers: number[] = [101, 102, 103];

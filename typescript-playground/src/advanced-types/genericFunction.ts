@@ -9,7 +9,7 @@
 // ];
 
 //& Instead of writing the same type of functions again and again, we can write a generic function
-const createArrayWithGeneric = <T>(value: T) => {
+const createArrayWithGeneric = <T>(value: T): T[] => {
   return [value];
 };
 

@@ -23,4 +23,24 @@ const canEdit = (role: UserRoles) => {
 };
 
 const isEditPermissible = canEdit(UserRoles.Editor);
-console.log(isEditPermissible);
+// console.log(isEditPermissible);
+
+enum TrafficLight {
+  RED = 'RED',
+  YELLOW = 'YELLOW',
+  GREEN = 'GREEN',
+}
+
+// const signal: TrafficLight = TrafficLight.RED; // returns value
+
+const trafficSignal = (color: TrafficLight) => {
+  if (color === TrafficLight.RED) {
+    console.log('Red');
+  } else if (color === TrafficLight.YELLOW) {
+    console.log('Yellow');
+  } else {
+    console.log('Green');
+  }
+};
+
+trafficSignal(TrafficLight.GREEN);
