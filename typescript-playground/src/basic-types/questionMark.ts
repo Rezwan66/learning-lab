@@ -1,6 +1,6 @@
 // ? : Ternary operator : decision-making
 // ?? : nullish coalescing operator : will work only based on null/undefined value
-// ?. : optional chaining
+// ?. : optional chaining : mapping
 
 const biyerJonnoEligible = (age: number) => {
   //   if (age >= 21) {
@@ -21,7 +21,7 @@ const userTheme = 'green'; // If we set a truthy value that will be taken
 const selectedTheme = userTheme ?? 'light'; // This essentially means that initially if the userTheme is not set, it will by default set the theme as 'light'
 // console.log(selectedTheme);
 
-//TODO: Ternary AND nullish coalescing operator
+//&: Ternary AND nullish coalescing operator
 // const isAuthenticated = null;
 const isAuthenticated = '';
 
