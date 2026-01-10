@@ -62,3 +62,7 @@ After configuring the environment variables, run this command to start the proje
 ```bash
 npm run dev
 ```
+
+### Notes
+
+https://www.notion.so/Mission-5-Be-a-Prisma-Pro-NextJs-Ninja-2d48e735b53f808397d7c5bcb087967a?source=copy_link
