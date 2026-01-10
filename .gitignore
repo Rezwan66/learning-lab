@@ -3,3 +3,8 @@ node_modules
 dist
 .vercel
 .env*.local
+
+google_client_secret.json
+prisma-orm-exploration/prisma-blog-app/google_client_secret.json
+
+/generated/prisma/
