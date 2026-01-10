@@ -1,5 +1,9 @@
-node_modules
-# Keep environment variables out of version control
+node_modules/
+
+# Environment & secrets
 .env
-google_client_secret
-/generated/prisma
+google_client_secret.json
+
+# Prisma generated
+/generated/prisma/
+prisma/generated/
