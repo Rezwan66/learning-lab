@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function ContactLayout({
   children,
 }: {
@@ -6,6 +8,7 @@ export default function ContactLayout({
   return (
     <div>
       <h2>ContactLayout page</h2>
+      <Link href={'contact/branch'}>Branch</Link>
       {children}
     </div>
   );
