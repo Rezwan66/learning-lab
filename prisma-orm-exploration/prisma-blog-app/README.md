@@ -2,6 +2,14 @@
 
 ## 🍰 Resources
 
+### System Design
+
+![system-design](resources/system-design.png)
+
+### Entity Relationship Diagram
+
+![er-diagram](resources/er-diagram.drawio.png)
+
 - [Prisma-postgres Quickstart](https://www.prisma.io/docs/getting-started/prisma-orm/quickstart/postgresql)
 
 - [Better-Auth Installation](https://www.better-auth.com/docs/installation)
