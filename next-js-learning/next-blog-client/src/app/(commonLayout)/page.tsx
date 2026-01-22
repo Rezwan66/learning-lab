@@ -1,20 +1,26 @@
+import BlogCard from '@/components/modules/homepage/BlogCard';
 import { Button } from '@/components/ui/button';
-import { authClient } from '@/lib/auth-client';
+import { blogService } from '@/services/blog.service';
+import { BlogPost } from '@/types';
 
 export default async function Home() {
-  const session = await authClient.getSession();
-  // const res = await fetch('http://localhost:5000/posts');
-  // const posts = await res.json();
+  const { data } = await blogService.getBlogPosts(
+    {
+      isFeatured: false,
+      // search: 'goth',
+    },
+    {
+      cache: 'no-store',
+      // revalidate: 10,
+    }
+  );
+  // console.dir(data, { depth: 2 });
 
-  console.log(session);
   return (
-    <div className="">
-      {/* {posts?.data.data.map((p: { id: string; title: string }) => (
-        <div key={p.id}>{p.title}</div>
-      ))} */}
-      <Button className="cursor-pointer" variant="outline">
-        Click here
-      </Button>
+    <div className="grid grid-cols-3 max-w-7xl mx-auto px-4 gap-5">
+      {data?.data?.data.map((post: BlogPost) => (
+        <BlogCard key={post.id} post={post} />
+      ))}
     </div>
   );
 }
