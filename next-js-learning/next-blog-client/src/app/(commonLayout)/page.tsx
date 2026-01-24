@@ -6,12 +6,12 @@ import { BlogPost } from '@/types';
 export default async function Home() {
   const { data } = await blogService.getBlogPosts(
     {
-      isFeatured: false,
+      // isFeatured: false,
       // search: 'goth',
     },
     {
-      cache: 'no-store',
-      // revalidate: 10,
+      cache: 'no-store', //# SSR
+      // revalidate: 10, //# ISR
     }
   );
   // console.dir(data, { depth: 2 });
