@@ -1,4 +1,6 @@
 import { env } from '@/env';
+import { error } from 'console';
+import { cookies } from 'next/headers';
 
 const API_URL = env.API_URL;
 
@@ -9,6 +11,8 @@ const API_URL = env.API_URL;
 interface GetBlogsParams {
   isFeatured?: boolean;
   search?: string;
+  page?: string;
+  limit?: string;
 }
 
 interface ServiceOptions {
@@ -16,10 +20,16 @@ interface ServiceOptions {
   revalidate?: number;
 }
 
+export interface BlogData {
+  title: string;
+  content: string;
+  tags?: string[];
+}
+
 export const blogService = {
   getBlogPosts: async function (
     params?: GetBlogsParams,
-    options?: ServiceOptions
+    options?: ServiceOptions,
   ) {
     try {
       // const res = await fetch(`${API_URL}/posts`); //# SSG
@@ -48,6 +58,12 @@ export const blogService = {
         config.next = { revalidate: options.revalidate };
       }
 
+      config.next = { ...config.next, tags: ['blogPosts'] };
+
+      // const res = await fetch(url.toString(), {
+      //   next: { tags: ['blogPosts'] },
+      // });
+
       const res = await fetch(url.toString(), config);
 
       const data = await res.json();
@@ -67,6 +83,36 @@ export const blogService = {
     try {
       const res = await fetch(`${API_URL}/posts/${id}`);
       const data = await res.json();
+
+      return { data, error: null };
+    } catch (error) {
+      return { data: null, error: { message: 'Something Went Wrong!' } };
+    }
+  },
+
+  createBlogPost: async (blogData: BlogData) => {
+    try {
+      const cookieStore = await cookies();
+      const res = await fetch(`${API_URL}/posts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Cookie: cookieStore.toString(),
+        },
+        body: JSON.stringify(blogData),
+      });
+      const data = await res.json();
+
+      if (data.error) {
+        return {
+          data: null,
+          error: {
+            message:
+              // data.error ||
+              'Error: Post not created!',
+          },
+        };
+      }
 
       return { data, error: null };
     } catch (error) {
