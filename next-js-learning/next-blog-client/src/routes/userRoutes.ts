@@ -6,11 +6,11 @@ export const userRoutes: Route[] = [
     items: [
       {
         title: 'Create Blog',
-        url: '/create-blog',
+        url: '/dashboard/create-blog',
       },
       {
-        title: 'Posts',
-        url: '/posts',
+        title: 'History',
+        url: '/dashboard/history',
       },
     ],
   },
@@ -24,7 +24,7 @@ export const userRoutes: Route[] = [
       {
         title: 'Data Fetching',
         url: '#',
-        isActive: true,
+        // isActive: true,
       },
     ],
   },
